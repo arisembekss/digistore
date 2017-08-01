@@ -5,6 +5,9 @@
 <head>
 	<title>DigiStore</title>
 	<?php include 'head.php';?>
+	<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-database.js"></script>
 </head>
 <body>
  <a class='w3-text-khaki' href="<?php echo site_url('Welcome/') ?>">Home</a>
@@ -18,9 +21,19 @@
 		</header>
 
 		<div class="w3-container">
-		  <p>Lorem ipsum...</p>
-		</div>
+		  	<label>First Name</label>
+			<input class="w3-input" type="text">
 
+			<label>Last Namel</label>
+			<input class="w3-input" type="text">
+
+			<label>Email</label>
+			<input class="w3-input" type="text" id="email">
+
+			<label>Password</label>
+			<input class="w3-input" type="text" id="password">
+		</div>
+		<br><br>
 		<footer class="w3-container w3-blue" style="width: 500px;">
 			<div class="w3-row">
   				<!-- <h6>Doesn't have account yet? <a href="#">Register</a></h6> -->
@@ -28,7 +41,7 @@
   					<h6>Have account yet? <a href="<?php echo site_url('Login/') ?>">Login</a></h6>
   				</div>
   				<div class="w3-half w3-container w3-padding" align="right">
-  					<button class="w3-btn">Login</button>
+  					<button class="w3-btn" id="btn-reg">Register</button>
   				</div>
   			</div>
   				
@@ -39,5 +52,56 @@
 </div>
 <br/>
 
+<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  /*var config = {
+    apiKey: "AIzaSyALXd10A7gX3l-I1_0urxEfrwRZ9mAm9NE",
+    authDomain: "digistore-fa05c.firebaseapp.com",
+    databaseURL: "https://digistore-fa05c.firebaseio.com",
+    projectId: "digistore-fa05c",
+    storageBucket: "",
+    messagingSenderId: "964350626633"
+  };
+  firebase.initializeApp(config);*/
+  var config = {apiKey:"AIzaSyALXd10A7gX3l-I1_0urxEfrwRZ9mAm9NE", authDomain:"digistore-fa05c.firebaseapp.com", databaseURL:"https://digistore-fa05c.firebaseio.com", projectId:"digistore-fa05c", storageBucket:"", messagingSenderId:"964350626633"};
+	firebase.initializeApp(config);
+  /*firebase.f({a:"AIzaSyALXd10A7gX3l-I1_0urxEfrwRZ9mAm9NE",b:"digistore-fa05c.firebaseapp.com",c:"https://digistore-fa05c.firebaseio.com",h:"digistore-fa05c",i:"",g:"964350626633"});*/
+</script>
+<script type="text/javascript">
+		//document.getElementById('quickstart-sign-in').addEventListener('click', toggleSignIn, false);
+      	document.getElementById('btn-reg').addEventListener('click', handleSignUp, false);
+
+      	function handleSignUp() {
+	      var email = document.getElementById('email').value;
+	      var password = document.getElementById('password').value;
+	      if (email.length < 4) {
+	        alert('Please enter an email address.');
+	        return;
+	      }
+	      if (password.length < 4) {
+	        alert('Please enter a password.');
+	        return;
+	      }
+	      // Sign in with email and pass.
+	      // [START createwithemail]
+	      firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+	        // Handle Errors here.
+	        var errorCode = error.code;
+	        var errorMessage = error.message;
+	        // [START_EXCLUDE]
+	        if (errorCode == 'auth/weak-password') {
+	          alert('The password is too weak.');
+	        } else {
+	          alert(errorCode);
+	        }
+	        console.log(error);
+	        // [END_EXCLUDE]
+	      });
+	      // [END createwithemail]
+	      //window.location.replace("<?php //echo site_url('Login/') ?>");
+	      window.location.href = "http://localhost/digistore/Login/";
+	    }
+	</script>
 </body>
 </html>
