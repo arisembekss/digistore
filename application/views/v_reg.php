@@ -14,7 +14,7 @@
   	<div class="w3-card-4" style="width: 500px;">
 
 		<header class="w3-container w3-blue">
-		  <h1>Login</h1>
+		  <h1>Create Account</h1>
 		</header>
 
 		<div class="w3-container">
@@ -25,7 +25,7 @@
 			<div class="w3-row">
   				<!-- <h6>Doesn't have account yet? <a href="#">Register</a></h6> -->
   				<div class="w3-half w3-container">
-  					<h6>Doesn't have account yet? <a href="<?php echo site_url('Registrasi/') ?>">Register</a></h6>
+  					<h6>Have account yet? <a href="<?php echo site_url('Login/') ?>">Login</a></h6>
   				</div>
   				<div class="w3-half w3-container w3-padding" align="right">
   					<button class="w3-btn">Login</button>
