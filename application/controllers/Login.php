@@ -9,10 +9,24 @@ class Login extends CI_Controller {
 
 	public function index(){
 		$this->load->view('v_login');
+		/*$myJSVar = $this->input->post('myOrderString');
+		if ($myJSVar == null) {
+			# code...
+			echo "<script>console.log('Boo!');</script>";
+		} else {
+			
+			echo "<script>console.log('".$myJSVar."');</script>";
+		}*/
 	}
 
 	public function login(){
-		echo "halaman login";
+		//echo "halaman login";
+		$this->load->view('v_account');
+		$myJSVar =$_POST['email'];
+		$this->session->set_userdata('nama', $myJSVar);
+		$name = $this->session->userdata('nama');
+		//echo "<script>console.log(".$myJSVar.");</script>";
+		echo $nama;
 	}
 
 }

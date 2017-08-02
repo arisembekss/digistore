@@ -6,8 +6,8 @@
 	<title>DigiStore</title>
 	<?php include 'head.php';?>
 	<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-database.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-database.js"></script>
 </head>
 <body>
  <a class='w3-text-khaki' href="<?php echo site_url('Welcome/') ?>">Home</a>
@@ -52,21 +52,24 @@
 </div>
 <br/>
 
+<div id="id01" class="w3-modal">
+  <div class="w3-modal-content">
+    <div class="w3-container" style="height: 400px;">
+      <!-- <span onclick="document.getElementById('id01').style.display='none'" 
+      class="w3-button w3-display-topright">&times;</span> -->
+      <div class="w3-display-middle">
+      	<p>Proccessing Data</p>
+      	<div class="loader"></div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
 <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
 <script>
   // Initialize Firebase
-  /*var config = {
-    apiKey: "AIzaSyALXd10A7gX3l-I1_0urxEfrwRZ9mAm9NE",
-    authDomain: "digistore-fa05c.firebaseapp.com",
-    databaseURL: "https://digistore-fa05c.firebaseio.com",
-    projectId: "digistore-fa05c",
-    storageBucket: "",
-    messagingSenderId: "964350626633"
-  };
-  firebase.initializeApp(config);*/
-  var config = {apiKey:"AIzaSyALXd10A7gX3l-I1_0urxEfrwRZ9mAm9NE", authDomain:"digistore-fa05c.firebaseapp.com", databaseURL:"https://digistore-fa05c.firebaseio.com", projectId:"digistore-fa05c", storageBucket:"", messagingSenderId:"964350626633"};
-	firebase.initializeApp(config);
-  /*firebase.f({a:"AIzaSyALXd10A7gX3l-I1_0urxEfrwRZ9mAm9NE",b:"digistore-fa05c.firebaseapp.com",c:"https://digistore-fa05c.firebaseio.com",h:"digistore-fa05c",i:"",g:"964350626633"});*/
+  initFirebase();
 </script>
 <script type="text/javascript">
 		//document.getElementById('quickstart-sign-in').addEventListener('click', toggleSignIn, false);
@@ -99,8 +102,10 @@
 	        // [END_EXCLUDE]
 	      });
 	      // [END createwithemail]
+	      document.getElementById('id01').style.display='block';
+	      setTimeout('redirectPage(2)', 5000);
 	      //window.location.replace("<?php //echo site_url('Login/') ?>");
-	      window.location.href = "http://localhost/digistore/Login/";
+	      //window.location.href = "http://localhost/digistore/Login/";
 	    }
 	</script>
 </body>
