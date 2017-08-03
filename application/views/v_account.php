@@ -5,6 +5,13 @@
 	<?php include 'head.php';?>
 </head>
 <body>
-Boo !
+<?php  
+	foreach ($data as $u) {
+		# code...
+
+		echo $u->nama."<br>".$u->email;
+	}
+?>
+	
 </body>
 </html>

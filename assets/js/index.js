@@ -21,15 +21,18 @@ function redirectPage(page){
 	}    	
 }
 
-function passData(){
+function passData(email){
 	$.ajax({
         type: "POST",
-        url: "<?php echo base_url()?>Login/login",
-        data: {"myOrderString": email},  
-        success: function (data) {
-        	//alert('sukses');
-        	console.log('sukses');
-        }
-       });
+		url: "<?php echo base_url() ?>Login/login?>",
+		dataType: 'json',
+		data: {name: email},
+		success: function(res){
+			alert('sukses');
+		}
+       }).done(function(response) {
+    alert(response);
+});
+
 }
 

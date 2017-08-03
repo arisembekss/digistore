@@ -3,11 +3,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>DigiStore</title>
+	<title>DigiStoreee</title>
 	<?php include 'head.php';?>
 	<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-app.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-auth.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-database.js"></script>
+	<!-- <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script> -->
+	
 </head>
 <body>
  <a class='w3-text-khaki' href="<?php echo site_url('Welcome/') ?>">Home</a>
@@ -100,8 +102,30 @@
           //document.getElementById('quickstart-sign-in').disabled = false;
           // [END_EXCLUDE]
         });
+
+        /*var user = firebase.auth().currentUser;
+		var name, emaill, photoUrl, uid, emailVerified;
+
+		if (user != null) {
+			emaill = user.email;
+			//console.log(emaill);
+		}else{
+			alert("no user");
+		}*/
+		//alert(emaill);
+		//console.log(emaill);
         // [END authwithemail]
-        passVal(email);
+        //passVal(email);
+
+        /*$.ajax({
+		type: "POST",
+		url: "<?php //echo base_url() ?>Login/login",
+		dataType: 'json',
+		data: {name: email},
+		success: function(res){
+			alert('sukses');
+		}
+		});*/
         //setTimeout('redirectPage(1)', 5000);
         /*$.ajax({
         type: "POST",
@@ -112,7 +136,20 @@
         	console.log('sukses');
         }
        });*/
+       passData(email);
+
       }
+      /*firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    
+    var emaill = user.email;
+    console.log(emaill);
+  } else {
+  	alert("no user");
+    
+  }
+});*/
+      	/*<?php //redirect('Account/');?>*/
        /*$.ajax({
         type: "POST",
         url: "Login/login",
@@ -143,25 +180,23 @@
     };
 
 	$.post("<?php //echo base_url() ?>Login/");*/
-	/*var xmlHttp=new XMLHttpRequest();
-	if (xmlHttp==null) {
-		console.log('unsupport browser');
-		return;
-	}
-
-	var url = "<?php //echo base_url() ?>Login/login";
-	var params = "email="+email;
-	xmlHttp.open("POST", url, true);
-	xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	xmlHttp.send(params);
-*/
+	
 	//setTimeout('redirectPage(1)', 5000);
-	var data = {
+	/*var data = {
         email: email,
     	str: "this_is_a_dummy_test_string"
     };
 
-	$.post("<?php echo base_url() ?>Login/login", data);
+	$.post("<?php// echo base_url() ?>Login/login", data);*/
+	/*jQuery.ajax({
+		type: "POST",
+		url: "<?php echo base_url() ?>login/login",
+		dataType: 'json',
+		data: {name: email},
+		success: function(res){
+			alert('sukses');
+		}
+	});*/
 }
 
 

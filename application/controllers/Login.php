@@ -5,6 +5,8 @@ class Login extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->load->helper('url');
+		$this->load->helper('html');
+		$this->load->library('session');
 	}	
 
 	public function index(){
@@ -21,12 +23,14 @@ class Login extends CI_Controller {
 
 	public function login(){
 		//echo "halaman login";
-		$this->load->view('v_account');
-		$myJSVar =$_POST['email'];
+		
+		$myJSVar =$this->input->post('name');
 		$this->session->set_userdata('nama', $myJSVar);
-		$name = $this->session->userdata('nama');
+		//$name = $this->session->userdata('nama');
 		//echo "<script>console.log(".$myJSVar.");</script>";
-		echo $nama;
+		//echo $myJSVar;
+		//redirect('Account/');
+		$this->load->view('v_account');
 	}
 
 }
