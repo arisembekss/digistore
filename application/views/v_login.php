@@ -69,12 +69,21 @@
   initFirebase();
 </script>
 <script type="text/javascript">
+/*document.getElementById("btn-login").addEventListener("click",toggleSignIn,!1);
+function toggleSignIn(){if(firebase.auth().currentUser)firebase.auth().signOut();else{var a=document.getElementById("email").value,b=document.getElementById("password").value;4>a.length?alert("Please enter an email address."):4>b.length?alert("Please enter a password."):(firebase.auth().signInWithEmailAndPassword(a,b)["catch"](function(a){var b=a.message;"auth/wrong-password"===a.code?alert("Wrong password."):alert(b);console.log(a)}),(a=firebase.auth().currentUser)?console.log(a.email):console.log("no user"))}};*/
+	/*$(document).ready(function() {
+		if (firebase.auth().currentUser) {
+        // [START signout]
+        firebase.auth().signOut();
+        
+      } 
+	});*/
 	document.getElementById('btn-login').addEventListener('click', toggleSignIn, false);
 	function toggleSignIn() {
       if (firebase.auth().currentUser) {
         // [START signout]
         firebase.auth().signOut();
-        // [END signout]
+        
       } else {
         var email = document.getElementById('email').value;
         var password = document.getElementById('password').value;
@@ -99,106 +108,23 @@
             alert(errorMessage);
           }
           console.log(error);
-          //document.getElementById('quickstart-sign-in').disabled = false;
           // [END_EXCLUDE]
         });
 
-        /*var user = firebase.auth().currentUser;
-		var name, emaill, photoUrl, uid, emailVerified;
+        var user = firebase.auth().currentUser;
 
-		if (user != null) {
-			emaill = user.email;
-			//console.log(emaill);
-		}else{
-			alert("no user");
-		}*/
-		//alert(emaill);
-		//console.log(emaill);
-        // [END authwithemail]
-        //passVal(email);
-
-        /*$.ajax({
-		type: "POST",
-		url: "<?php //echo base_url() ?>Login/login",
-		dataType: 'json',
-		data: {name: email},
-		success: function(res){
-			alert('sukses');
+		if (user) {
+		  
+		  console.log(user.email);
+		} else {
+		  console.log('no user');
 		}
-		});*/
-        //setTimeout('redirectPage(1)', 5000);
-        /*$.ajax({
-        type: "POST",
-        url: "<?php// echo base_url()?>Login/login",
-        data: {"myOrderString": email},  
-        success: function (data) {
-        	//alert('sukses');
-        	console.log('sukses');
-        }
-       });*/
-       passData(email);
+        
 
       }
-      /*firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {
-    
-    var emaill = user.email;
-    console.log(emaill);
-  } else {
-  	alert("no user");
-    
-  }
-});*/
-      	/*<?php //redirect('Account/');?>*/
-       /*$.ajax({
-        type: "POST",
-        url: "Login/login",
-        data: {"myOrderString": "email"},  
-        success: function (data) {
-        	alert('sukses');
-        }
-       });*/
-      //alert("Logged in");
-      //window.location.replace("../Welcome/");
-      //document.getElementById('id01').style.display='block';
-       
-      
-      //setTimeout('passVal()', 5000);
-      /*var data = {
-        email: email,
-    	str: "this_is_a_dummy_test_string"
-    };
-
-	$.post("<?php //echo base_url() ?>Account/", data);*/
+     
       
     }
-
-    function passVal(email){
-    /*var data = {
-        email: "email",
-    	str: "this_is_a_dummy_test_string"
-    };
-
-	$.post("<?php //echo base_url() ?>Login/");*/
-	
-	//setTimeout('redirectPage(1)', 5000);
-	/*var data = {
-        email: email,
-    	str: "this_is_a_dummy_test_string"
-    };
-
-	$.post("<?php// echo base_url() ?>Login/login", data);*/
-	/*jQuery.ajax({
-		type: "POST",
-		url: "<?php echo base_url() ?>login/login",
-		dataType: 'json',
-		data: {name: email},
-		success: function(res){
-			alert('sukses');
-		}
-	});*/
-}
-
 
 
 </script>
