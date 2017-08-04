@@ -21,7 +21,7 @@
 		</header>
 
 		<div class="w3-container">
-		  	<label>First Name</label>
+		  	<!-- <label>First Name</label>
 			<input class="w3-input" type="text">
 
 			<label>Last Namel</label>
@@ -31,7 +31,44 @@
 			<input class="w3-input" type="text" id="email">
 
 			<label>Password</label>
-			<input class="w3-input" type="text" id="password">
+			<input class="w3-input" type="text" id="password"> -->
+			<?php $attributes = array("name" => "registrationform");
+				echo form_open("Registrasi/user_regis", $attributes);?>
+				<div class="form-group">
+					<label for="name"></label>
+					<input class="w3-input" name="fname" placeholder="Your First Name" type="text" value="<?php echo set_value('fname'); ?>" />
+					<span class="text-danger"><?php echo form_error('fname'); ?></span>
+				</div>
+
+				<div class="form-group">
+					<label for="name"></label>
+					<input class="w3-input" name="lname" placeholder="Last Name" type="text" value="<?php echo set_value('lname'); ?>" />
+					<span class="text-danger"><?php echo form_error('lname'); ?></span>
+				</div>
+				
+				<div class="form-group">
+					<label for="email"></label>
+					<input class="w3-input" name="email" placeholder="Email-ID" type="text" value="<?php echo set_value('email'); ?>" />
+					<span class="text-danger"><?php echo form_error('email'); ?></span>
+				</div>
+
+				<div class="form-group">
+					<label for="subject"></label>
+					<input class="w3-input" name="password" placeholder="Password" type="password" />
+					<span class="text-danger"><?php echo form_error('password'); ?></span>
+				</div>
+
+				<div class="form-group">
+					<label for="subject"></label>
+					<input class="w3-input" name="cpassword" placeholder="Confirm Password" type="password" />
+					<span class="text-danger"><?php echo form_error('cpassword'); ?></span>
+				</div>
+
+				<!-- <div class="form-group">
+					<button name="submit" type="submit" class="btn btn-default">Signup</button>
+					<button name="cancel" type="reset" class="btn btn-default">Cancel</button>
+				</div> -->
+				
 		</div>
 		<br><br>
 		<footer class="w3-container w3-blue" style="width: 500px;">
@@ -43,6 +80,8 @@
   				<div class="w3-half w3-container w3-padding" align="right">
   					<button class="w3-btn" id="btn-reg">Register</button>
   				</div>
+  				<?php echo form_close(); ?>
+  				<?php //echo $this->session->flashdata('msg'); ?>
   			</div>
   				
 		</footer>
@@ -73,7 +112,7 @@
 </script>
 <script type="text/javascript">
 		//document.getElementById('quickstart-sign-in').addEventListener('click', toggleSignIn, false);
-      	document.getElementById('btn-reg').addEventListener('click', handleSignUp, false);
+      	//document.getElementById('btn-reg').addEventListener('click', handleSignUp, false);
 
       	function handleSignUp() {
 	      var email = document.getElementById('email').value;

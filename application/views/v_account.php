@@ -9,7 +9,7 @@
 	foreach ($data as $u) {
 		# code...
 
-		echo $u->nama."<br>".$u->email;
+		echo $u->nama."<br>".$u->email."<br>";
 	}
 ?>
 	
