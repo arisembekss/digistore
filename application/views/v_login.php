@@ -13,7 +13,7 @@
 </head>
 <body>
  <a class='w3-text-khaki' href="<?php echo site_url('Welcome/') ?>">Home</a>
-<?php //echo anchor('Login/','Login'); ?> 
+<?php //echo $email; ?> 
 <div class="w3-display-container" style="height:500px;">
   <div class="w3-display-middle">
   	<div class="w3-card-4" style="width: 500px;">

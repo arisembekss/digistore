@@ -8,6 +8,7 @@ class Registrasi extends CI_Controller {
 		$this->load->helper('form');
 		$this->load->helper('url');
 		$this->load->library('form_validation');
+		$this->form_validation->set_error_delimiters('<div class="w3-text-teal">', '</div>');
 	}	
 
 	public function index(){
@@ -37,7 +38,8 @@ class Registrasi extends CI_Controller {
 			);
 
 			$this->m_data->regis_user('user', $data);
-			redirect('Account/');
+			//redirect('Login/', $data);
+			$this->load->view('v_redirect', $data);
 		}
 	}
 
