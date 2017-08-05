@@ -87,6 +87,7 @@ function toggleSignIn(){if(firebase.auth().currentUser)firebase.auth().signOut()
       } else {
         var email = document.getElementById('email').value;
         var password = document.getElementById('password').value;
+        console.log(email+" "+password);
         if (email.length < 4) {
           alert('Please enter an email address.');
           return;
@@ -110,18 +111,17 @@ function toggleSignIn(){if(firebase.auth().currentUser)firebase.auth().signOut()
           console.log(error);
           // [END_EXCLUDE]
         });
+        
 
-        var user = firebase.auth().currentUser;
+      }
+     /* var user = firebase.auth().currentUser;
 
 		if (user) {
 		  
 		  console.log(user.email);
 		} else {
 		  console.log('no user');
-		}
-        
-
-      }
+		}*/
      
       
     }
