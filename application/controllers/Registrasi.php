@@ -31,10 +31,12 @@ class Registrasi extends CI_Controller {
 		else
 		{
 			//insert the user registration details into database
+
 			$data = array(
 				'nama' => $this->input->post('fname'),
 				'email' => $this->input->post('email'),
-				'pass' => $this->input->post('password')
+				'pass' => $this->input->post('password'),
+				'user_id' => md5($this->input->post('email'))
 			);
 
 			$this->m_data->regis_user('user', $data);
