@@ -13,6 +13,8 @@
 	<?php //echo $nama;?>
 	<input type="hidden" name="email" id="email" value="<?php echo $email;?>">
 	<input type="hidden" name="pass" id="pass" value="<?php echo $pass;?>">
+	<input type="hidden" name="user_id" id="user_id" value="<?php echo $user_id;?>">
+	<input type="hidden" name="username" id="username" value="<?php echo $namad."_".$namab;?>">
 
 	<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
 	<script>
@@ -24,6 +26,8 @@
 		$(document).ready(function() {
 			var email = $("input#email").val();
 			var password = $("input#pass").val();
+			var uname = $("input#username").val();
+			var user_id = $("input#user_id").val();
 			//alert(email);
 			firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
 	        // Handle Errors here.
@@ -38,6 +42,12 @@
 	        console.log(error);
 	        // [END_EXCLUDE]
 	      });
+
+			firebase.database().ref('users/' + user_id).set({
+			    username: uname,
+			    email: email,
+			    jml_resto : "0"
+			});
 		});
 	</script>
 </body>

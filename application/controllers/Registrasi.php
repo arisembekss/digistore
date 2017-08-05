@@ -31,7 +31,13 @@ class Registrasi extends CI_Controller {
 		else
 		{
 			//insert the user registration details into database
-
+			$datareal = array(
+				'namad' => $this->input->post('fname'),
+				'namab' => $this->input->post('lname'),
+				'email' => $this->input->post('email'),
+				'pass' => $this->input->post('password'),
+				'user_id' => md5($this->input->post('email'))
+			);
 			$data = array(
 				'nama' => $this->input->post('fname'),
 				'email' => $this->input->post('email'),
@@ -41,7 +47,7 @@ class Registrasi extends CI_Controller {
 
 			$this->m_data->regis_user('user', $data);
 			//redirect('Login/', $data);
-			$this->load->view('v_redirect', $data);
+			$this->load->view('v_redirect', $datareal);
 		}
 	}
 

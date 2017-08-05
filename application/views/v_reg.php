@@ -36,7 +36,7 @@
 				echo form_open("Registrasi/user_regis", $attributes);?>
 				<div class="form-group">
 					<label for="name"></label>
-					<input class="w3-input" name="fname" placeholder="Your First Name" type="text" value="<?php echo set_value('fname'); ?>" />
+					<input class="w3-input" name="fname" placeholder="Your First Name | without space" type="text" value="<?php echo set_value('fname'); ?>" />
 					<span class="text-danger"><?php echo form_error('fname'); ?></span>
 				</div>
 
