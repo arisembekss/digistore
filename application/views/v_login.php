@@ -24,11 +24,25 @@
 
 		<div class="w3-container">
 		  <div class="w3-container">
-			<label>Email</label>
+			<!-- <label>Email</label>
 			<input class="w3-input" type="text" id="email">
 
 			<label>Password</label>
-			<input class="w3-input" type="text" id="password">
+			<input class="w3-input" type="text" id="password"> -->
+			<?php $attributes = array("name" => "loginform");
+				echo form_open("Login/login", $attributes);?>				
+				<div class="form-group">
+					<label for="email"></label>
+					<input class="w3-input" name="email" placeholder="Email-ID" type="text" value="<?php echo set_value('email'); ?>" />
+					<span class="text-danger"><?php echo form_error('email'); ?></span>
+				</div>
+
+				<div class="form-group">
+					<label for="subject"></label>
+					<input class="w3-input" name="password" placeholder="Password" type="password" />
+					<span class="text-danger"><?php echo form_error('password'); ?></span>
+				</div>
+
 		  </div>
 		</div>
 		<br><br>
@@ -41,6 +55,7 @@
   				<div class="w3-half w3-container w3-padding" align="right">
   					<button class="w3-btn" id="btn-login">Login</button>
   				</div>
+  				<?php echo form_close(); ?>
   			</div>
   				
 		</footer>
@@ -78,7 +93,7 @@ function toggleSignIn(){if(firebase.auth().currentUser)firebase.auth().signOut()
         
       } 
 	});*/
-	document.getElementById('btn-login').addEventListener('click', toggleSignIn, false);
+	//document.getElementById('btn-login').addEventListener('click', toggleSignIn, false);
 	function toggleSignIn() {
       if (firebase.auth().currentUser) {
         // [START signout]
