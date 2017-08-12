@@ -1,9 +1,28 @@
+<?php
+$id = $this->session->userdata("iduser");
+$query = $this->db->query("select * from user_store where id_user = ".$id);
+$numr = $this->db->query("select * from user_store where id_user = ".$id)->num_rows();
+//echo $numr;
+		
+?>
 <div class="w3-sidebar w3-bar-block w3-card-2 w3-animate-left" style="display:none" id="mySidebar">
   <button class="w3-bar-item w3-button w3-large"
   onclick="w3_close()">Close &times;</button>
   
   <a href="#" class="w3-bar-item w3-button" onclick="opentoko('toko')">Toko</a>
   	<div class="w3-ul" id="toko" style="display: none; margin-left: 20px;">
+  	<?php
+  		if ($numr > 0) {
+  			# code...
+  			foreach ($query ->result() as $value) {
+			# code...
+			echo "<a href='#' class='w3-bar-item w3-button'>".$value->nama_store."</a>";
+			}
+  		} else {
+
+  		}
+  		
+  	?>
 		<a href="#" class="w3-bar-item w3-button">Tambah Toko</a>	
 	</div>
   <a href="#" class="w3-bar-item w3-button" onclick="opentoko('makanan')">Menu Makanan</a>

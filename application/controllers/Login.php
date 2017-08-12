@@ -51,6 +51,7 @@ class Login extends CI_Controller {
  				foreach($this->m_login->cek_login("user",$where)->result() as $u){
  					$uemail = $u->email;
  					$uid = $u->user_id;
+ 					$iduser = $u->id_user;
  					$uname = $u->nama;
  				}
 
@@ -58,7 +59,8 @@ class Login extends CI_Controller {
 					'unama' => $uname,
 					'ustatus' => "login",
 					'uemail' => $uemail,
-					'uid' => $uid
+					'uid' => $uid,
+					'iduser' => $iduser
 					);
 		 
 				$this->session->set_userdata($data_session);

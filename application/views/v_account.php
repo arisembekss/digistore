@@ -27,6 +27,7 @@
 			</div>
 			<div class="w3-third w3-container">
 				<h2>Hai, <?php echo $this->session->userdata("unama"); ?></h2>
+				<br/>uid, <?php echo $this->session->userdata("iduser"); ?>
 				<br><a href="<?php echo base_url('Login/logout'); ?>">Logout</a><br><br>
 			</div>
 		</div>
@@ -40,6 +41,16 @@
 		
 		<br><?php echo $this->session->userdata("uemail"); ?>
 		<br><?php //echo $this->session->userdata("uid"); ?>
+		<?php 
+			$idu = $this->session->userdata("iduser");
+			$where = array(
+				'id_user' => $idu
+			);
+			foreach ($this->m_login->cek_login("user_store",$where)->result() as $us) {
+				
+				echo $us->nama_store;
+			}
+		?>
 		
 	</div>
 	
