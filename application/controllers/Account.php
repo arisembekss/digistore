@@ -18,7 +18,7 @@ class Account extends CI_Controller {
 	public function index(){
 		$data['data'] = $this->m_data->tampil_data()->result();
 		$this->load->view('v_account');
-		echo $this->user_rtdb;
+		//echo $this->user_rtdb;
 	}
 
 	public function login(){

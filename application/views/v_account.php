@@ -9,11 +9,44 @@
 	<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
 </head>
 <body>
-<h1>Login berhasil !</h1>
-	<h2>Hai, <?php echo $this->session->userdata("unama"); ?></h2>
-	<br><?php echo $this->session->userdata("uemail"); ?>
-	<br><?php //echo $this->session->userdata("uid"); ?>
-	<br><a href="<?php echo base_url('Login/logout'); ?>">Logout</a><br><br>
+<?php include 'i_sidenav.php';?>
+
+<div zclass="w3-main" id="main">
+	<div class="w3-teal">
+		<div class="w3-row">
+			<div class="w3-third w3-container">
+			  
+			  <div class="w3-container">
+			  	<button class="w3-button w3-teal w3-xlarge" onclick="w3_open()">&#9776;</button>
+			    <h1>My Page</h1>
+			    
+			  </div>
+			</div>
+			<div class="w3-third w3-container">
+				
+			</div>
+			<div class="w3-third w3-container">
+				<h2>Hai, <?php echo $this->session->userdata("unama"); ?></h2>
+				<br><a href="<?php echo base_url('Login/logout'); ?>">Logout</a><br><br>
+			</div>
+		</div>
+	  
+	</div>
+
+	
+
+	<div class="w3-container">
+		<h1>Login berhasil !</h1>
+		
+		<br><?php echo $this->session->userdata("uemail"); ?>
+		<br><?php //echo $this->session->userdata("uid"); ?>
+		
+	</div>
+	
+
+
+</div>
+
 <?php  
 	/*foreach ($data as $u) {
 		# code...
@@ -24,21 +57,31 @@
 	<script>
 	  // Initialize Firebase
 	  initFirebase();
+	  function w3_open() {
+	  document.getElementById("main").style.marginLeft = "25%";
+	  document.getElementById("mySidebar").style.width = "25%";
+	  document.getElementById("mySidebar").style.display = "block";
+	  document.getElementById("openNav").style.display = 'none';
+	}
+	function w3_close() {
+	  document.getElementById("main").style.marginLeft = "0%";
+	  document.getElementById("mySidebar").style.display = "none";
+	  document.getElementById("openNav").style.display = "inline-block";
+	}
 	</script>
 
 	<script type="text/javascript">
-		var userId = "ret5545454";
+		/*var userId = "ret5545454";
 		var query = firebase.database().ref("user/"+userId+"/toko").orderByKey();
 		query.once("value")
 		  .then(function(snapshot) {
 		    snapshot.forEach(function(childSnapshot) {
-		      // key will be "ada" the first time and "alan" the second time
+		      
 		      var key = childSnapshot.key;
 		      console.log(key);
-		      // childData will be the actual contents of the child
-		      //var childData = childSnapshot.val();
+		      
 		  });
-		});
+		});*/
 	</script>
 </body>
 </html>
