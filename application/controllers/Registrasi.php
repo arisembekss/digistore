@@ -45,7 +45,7 @@ class Registrasi extends CI_Controller {
 				'user_id' => md5($this->input->post('email'))
 			);
 
-			$this->m_data->regis_user('user', $data);
+			$this->m_data->insert_table('user', $data);
 			//redirect('Login/', $data);
 			$this->load->view('v_redirect', $datareal);
 		}

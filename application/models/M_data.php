@@ -4,8 +4,16 @@ class M_data extends CI_Model{
 		return $this->db->get('user');
 	}
 
-	function regis_user($table, $data){
+	function insert_table($table, $data){
 		$this->db->insert($table, $data);
+	}
+
+	function select_all(){
+
+	}
+
+	function select_data($table, $where){
+		return $this->db->get_where($table,$where);
 	}
 
 	function tampil_user_toko($iduser){

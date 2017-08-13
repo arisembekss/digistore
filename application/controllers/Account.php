@@ -26,17 +26,14 @@ class Account extends CI_Controller {
 			);
 		$data['userstore'] = $this->m_login->cek_login("user_store",$where)->result();
 		$this->load->view('v_account');
-		
-		
-		/*foreach($data as $u){
-			echo $u->nama_store;
-		}*/
-		//echo implode("", $data);
-		//echo $this->user_rtdb;
 	}
 
 	public function login(){
 		echo "halaman login";
+	}
+
+	public function add_store(){
+		$this->load->view('v_add_store');
 	}
 
 }

@@ -16,14 +16,14 @@ $numr = $this->db->query("select * from user_store where id_user = ".$id)->num_r
   			# code...
   			foreach ($query ->result() as $value) {
 			# code...
-			echo "<a href='#' class='w3-bar-item w3-button'>".$value->nama_store."</a>";
+				echo "<a href='#' class='w3-bar-item w3-button'>".$value->nama_store."</a>";
 			}
   		} else {
 
   		}
   		
   	?>
-		<a href="#" class="w3-bar-item w3-button">Tambah Toko</a>	
+		<a href="<?php echo base_url() ?>Account/add_store" class="w3-bar-item w3-button">Tambah Toko</a>	
 	</div>
   <a href="#" class="w3-bar-item w3-button" onclick="opentoko('makanan')">Menu Makanan</a>
   	<div class="w3-ul" id="makanan" style="display: none; margin-left: 20px;">

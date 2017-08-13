@@ -6,6 +6,7 @@
 	<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-app.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-auth.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-database.js"></script>
+	<meta http-equiv="refresh" content="5; url=<?php echo base_url('Login/');?>" />
 	<!-- <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script> -->
 	
 </head>
@@ -48,6 +49,9 @@
 			    email: email,
 			    jml_resto : "0"
 			});
+
+			//window.location.replace("");
+			//setTimeout("location.href = '';",5000);
 		});
 	</script>
 </body>
