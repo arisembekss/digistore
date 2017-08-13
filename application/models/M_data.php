@@ -8,8 +8,8 @@ class M_data extends CI_Model{
 		$this->db->insert($table, $data);
 	}
 
-	function select_all(){
-
+	function select_all($table){
+		return $this->db->get($table);
 	}
 
 	function select_data($table, $where){

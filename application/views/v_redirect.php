@@ -24,7 +24,7 @@
 	</script>
 
 	<script type="text/javascript">
-		$(document).ready(function() {
+		/*$(document).ready(function() {
 			var email = $("input#email").val();
 			var password = $("input#pass").val();
 			var uname = $("input#username").val();
@@ -49,9 +49,7 @@
 			    email: email,
 			    jml_resto : "0"
 			});
-
-			//window.location.replace("");
-			//setTimeout("location.href = '';",5000);
-		});
+		});*/
+		$(document).ready(function(){var a=$("input#email").val(),e=$("input#pass").val(),s=$("input#username").val(),r=$("input#user_id").val();firebase.auth().createUserWithEmailAndPassword(a,e)["catch"](function(a){var e=a.code;a.message;"auth/weak-password"==e?alert("The password is too weak."):alert(e),console.log(a)}),firebase.database().ref("users/"+r).set({username:s,email:a,jml_resto:"0"})});
 	</script>
 </body>

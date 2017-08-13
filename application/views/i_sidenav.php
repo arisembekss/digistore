@@ -8,7 +8,8 @@ $numr = $this->db->query("select * from user_store where id_user = ".$id)->num_r
 <div class="w3-sidebar w3-bar-block w3-card-2 w3-animate-left" style="display:none" id="mySidebar">
   <button class="w3-bar-item w3-button w3-large"
   onclick="w3_close()">Close &times;</button>
-  
+  <br><br>
+  <a href="<?php echo base_url() ?>Account" class="w3-bar-item w3-button">Dashboard</a>
   <a href="#" class="w3-bar-item w3-button" onclick="opentoko('toko')">Toko</a>
   	<div class="w3-ul" id="toko" style="display: none; margin-left: 20px;">
   	<?php
@@ -23,7 +24,8 @@ $numr = $this->db->query("select * from user_store where id_user = ".$id)->num_r
   		}
   		
   	?>
-		<a href="<?php echo base_url() ?>Account/add_store" class="w3-bar-item w3-button">Tambah Toko</a>	
+  		<a href="<?php //echo base_url() ?>#" class="w3-bar-item w3-button">Overview</a>
+		<a href="#" onclick="document.getElementById('modaladd').style.display='block'" class="w3-bar-item w3-button">Tambah Toko</a>	
 	</div>
   <a href="#" class="w3-bar-item w3-button" onclick="opentoko('makanan')">Menu Makanan</a>
   	<div class="w3-ul" id="makanan" style="display: none; margin-left: 20px;">
@@ -36,12 +38,5 @@ $numr = $this->db->query("select * from user_store where id_user = ".$id)->num_r
 </div>
 
 <script>
-	function opentoko(divv){
-		var ket = document.getElementById(divv).style.display;
-		if (ket == "none") {
-			document.getElementById(divv).style.display = "block";
-		} else{
-			document.getElementById(divv).style.display = "none";
-		}
-	}
+	function opentoko(e){var t=document.getElementById(e).style.display;"none"==t?document.getElementById(e).style.display="block":document.getElementById(e).style.display="none"}
 </script>

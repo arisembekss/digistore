@@ -21,17 +21,7 @@
 		</header>
 
 		<div class="w3-container">
-		  	<!-- <label>First Name</label>
-			<input class="w3-input" type="text">
-
-			<label>Last Namel</label>
-			<input class="w3-input" type="text">
-
-			<label>Email</label>
-			<input class="w3-input" type="text" id="email">
-
-			<label>Password</label>
-			<input class="w3-input" type="text" id="password"> -->
+		  	
 			<?php $attributes = array("name" => "registrationform");
 				echo form_open("Registrasi/user_regis", $attributes);?>
 				<div class="form-group">

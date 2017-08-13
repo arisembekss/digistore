@@ -17,7 +17,8 @@
 	<?php include 'i_headpage.php' ?>
 
 	<div class="w3-container">
-		
+		Page Overview
 	</div>
 </div>
+<?php include 'i_form_add_store.php';?>
 </body>

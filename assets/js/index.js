@@ -4,10 +4,7 @@ function initFirebase(){
 }
 
 function redirectPage(page){
-	/*page list number
-	1 = Welcome
-	2 = login 
-	3 = registrasi*/
+	
 	switch (page){
 		case 1:
 			//passData();
@@ -44,7 +41,7 @@ function passData(email){
 		}
        }).done(function(response) {
     alert(response);
-});
+	});
 
 }
 

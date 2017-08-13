@@ -24,9 +24,9 @@
 			$where = array(
 				'id_user' => $idu
 			);
-			foreach ($this->m_login->cek_login("user_store",$where)->result() as $us) {
+			foreach ($this->m_data->select_data("user_store",$where)->result() as $us) {
 				
-				echo $us->nama_store;
+				echo $us->nama_store."<br/>";
 			}
 		?>
 		
@@ -36,16 +36,11 @@
 
 </div>
 
-<?php  
-	/*foreach ($data as $u) {
-		# code...
+<?php include 'i_form_add_store.php';?>
 
-		echo $u->nama."<br>".$u->email."<br>";
-	}*/
-?>
 	<script>
 	  // Initialize Firebase
-	  initFirebase();
+	 /* initFirebase();
 	  function w3_open() {
 	  document.getElementById("main").style.marginLeft = "25%";
 	  document.getElementById("mySidebar").style.width = "25%";
@@ -56,21 +51,12 @@
 	  document.getElementById("main").style.marginLeft = "0%";
 	  document.getElementById("mySidebar").style.display = "none";
 	  document.getElementById("openNav").style.display = "inline-block";
-	}
+	}*/
+	function w3_open(){document.getElementById("main").style.marginLeft="25%",document.getElementById("mySidebar").style.width="25%",document.getElementById("mySidebar").style.display="block",document.getElementById("openNav").style.display="none"}function w3_close(){document.getElementById("main").style.marginLeft="0%",document.getElementById("mySidebar").style.display="none",document.getElementById("openNav").style.display="inline-block"}initFirebase();
 	</script>
 
 	<script type="text/javascript">
-		/*var userId = "ret5545454";
-		var query = firebase.database().ref("user/"+userId+"/toko").orderByKey();
-		query.once("value")
-		  .then(function(snapshot) {
-		    snapshot.forEach(function(childSnapshot) {
-		      
-		      var key = childSnapshot.key;
-		      console.log(key);
-		      
-		  });
-		});*/
+		
 	</script>
 </body>
 </html>
