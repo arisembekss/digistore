@@ -32,23 +32,44 @@ class Account extends CI_Controller {
 		echo "halaman login";
 	}
 
-	public function add_store(){
-		/*$this->load->view('v_add_store');*/
+	public function overview(){
+		$this->load->view('v_overview_store');
 	}
 
 	public function add_store_data(){
 		$iduser = $this->session->userdata("iduser");
+		$jmlhmeja = $this->input->post('jmlmeja');
+		$namastore = $this->input->post('nmtoko');
 		$tipe = 1;
 		$data = array(
 			'id_user' => $iduser,
-			'nama_store' => $this->input->post('nmtoko'),
+			'nama_store' => $namastore,
 			'alamat_store' => $this->input->post('almttoko'),
-			'jml_meja' => $this->input->post('jmlmeja'),
+			'jml_meja' => $jmlhmeja,
 			'tipe_store' => $tipe
 		);
 
-		$this->m_data->insert_table('user_store', $data);
-		$this->load->view('v_overview_store');
+		$datameja = array(
+
+			);
+		$last_id_store = $this->m_data->insert_table_retid('user_store', $data);
+		for ($i=1; $i <= $jmlhmeja ; $i++) { 
+			# code...
+			$query = $this->db->query('insert into meja_store (id_user, id_store, qr_code) values ('.$this->db->escape($iduser).', '.$this->db->escape($last_id_store).', "meja'.$i.'/'.$namastore.'/'.$last_id_store.'")');
+		}
+		
+		$where = array(
+				'id_user'=>$iduser,
+				'id_store'=>$last_id_store
+			);
+		$data['qrcode'] = $this->m_data->select_data('meja_store', $where);
+		$this->load->view('v_redirect_store', $where);
+	}
+
+	function detail_toko(){
+		//$session_toko = array("toko"=>$nmtoko);
+		$nmtoko = array('nmtoko'=>$this->input->get('sesstoko'));
+		$this->load->view('v_detail_toko', $nmtoko);
 	}
 
 }

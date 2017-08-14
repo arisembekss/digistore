@@ -8,6 +8,12 @@ class M_data extends CI_Model{
 		$this->db->insert($table, $data);
 	}
 
+	function insert_table_retid($table, $data){
+		$this->db->insert($table, $data);
+		$last_id = $this->db->insert_id();
+		return $last_id;
+	}
+
 	function select_all($table){
 		return $this->db->get($table);
 	}

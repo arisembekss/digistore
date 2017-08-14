@@ -13,18 +13,20 @@ $numr = $this->db->query("select * from user_store where id_user = ".$id)->num_r
   <a href="#" class="w3-bar-item w3-button" onclick="opentoko('toko')">Toko</a>
   	<div class="w3-ul" id="toko" style="display: none; margin-left: 20px;">
   	<?php
+
   		if ($numr > 0) {
   			# code...
   			foreach ($query ->result() as $value) {
 			# code...
-				echo "<a href='#' class='w3-bar-item w3-button'>".$value->nama_store."</a>";
+          $hrefdetail = base_url()."Account/detail_toko(".$value->nama_store.")";
+				echo "<a href='".base_url()."Account/detail_toko?sesstoko=".$value->id_store."' class='w3-bar-item w3-button'>".$value->nama_store."</a>";
 			}
   		} else {
 
   		}
   		
   	?>
-  		<a href="<?php //echo base_url() ?>#" class="w3-bar-item w3-button">Overview</a>
+  		<a href="<?php echo base_url() ?>Account/overview" class="w3-bar-item w3-button">Overview</a>
 		<a href="#" onclick="document.getElementById('modaladd').style.display='block'" class="w3-bar-item w3-button">Tambah Toko</a>	
 	</div>
   <a href="#" class="w3-bar-item w3-button" onclick="opentoko('makanan')">Menu Makanan</a>
