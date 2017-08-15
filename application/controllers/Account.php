@@ -90,7 +90,19 @@ class Account extends CI_Controller {
 			'nmtoko'=>base64_decode($this->input->get('sessnmtoko')),
 			'idtoko'=>base64_decode($this->input->get('sesstoko'))
 			);
+
 		$this->load->view('v_menu', $nmtoko);
+	}
+
+	function add_menu(){
+		$data = array(
+				'id_store'=>$this->input->post('id_store'),
+				'jenis'=>$this->input->post('jenis'),
+				'nama_menu'=>$this->input->post('nmmenu'),
+				'keterangan'=>$this->input->post('keterangan'),
+				'harga'=>$this->input->post('harga'),
+			);
+		$this->m_data->insert_table('menu', $data);
 	}
 
 }

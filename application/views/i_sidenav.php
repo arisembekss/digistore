@@ -30,14 +30,14 @@ $numr = $this->db->query("select * from user_store where id_user = ".$id)->num_r
   		<a href="<?php echo base_url() ?>Account/overview" class="w3-bar-item w3-button">Overview</a>
 		<a href="#" onclick="document.getElementById('modaladd').style.display='block'" class="w3-bar-item w3-button">Tambah Toko</a>	
 	</div>
-  <a href="#" class="w3-bar-item w3-button" onclick="opentoko('makanan')">Menu Makanan</a>
-  	<div class="w3-ul" id="makanan" style="display: none; margin-left: 20px;">
+  <!-- <a href="#" class="w3-bar-item w3-button" onclick="opentoko('side-makanan')">Menu Makanan</a>
+  	<div class="w3-ul" id="side-makanan" style="display: none; margin-left: 20px;">
 		<a href="#" class="w3-bar-item w3-button">Tambah Menu Makanan</a>	
 	</div>
-  <a href="#" class="w3-bar-item w3-button" onclick="opentoko('minuman')">Menu Minuman</a>
-  	<div class="w3-ul" id="minuman" style="display: none; margin-left: 20px;">
+  <a href="#" class="w3-bar-item w3-button" onclick="opentoko('side-minuman')">Menu Minuman</a>
+  	<div class="w3-ul" id="side-minuman" style="display: none; margin-left: 20px;">
 		<a href="#" class="w3-bar-item w3-button">Tambah Menu Minuman</a>	
-	</div>
+	</div> -->
 </div>
 
 <script>
