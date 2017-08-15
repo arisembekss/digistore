@@ -53,9 +53,11 @@ class Account extends CI_Controller {
 
 			);
 		$last_id_store = $this->m_data->insert_table_retid('user_store', $data);
+		
 		for ($i=1; $i <= $jmlhmeja ; $i++) { 
 			# code...
-			$query = $this->db->query('insert into meja_store (id_user, id_store, qr_code) values ('.$this->db->escape($iduser).', '.$this->db->escape($last_id_store).', "meja'.$i.'/'.$namastore.'/'.$last_id_store.'")');
+			$qrmd = md5("meja".$i.",".$namastore.",".$last_id_store);
+			$query = $this->db->query('insert into meja_store (id_user, id_store, format, qr_code) values ('.$this->db->escape($iduser).', '.$this->db->escape($last_id_store).', "meja'.$i.','.$namastore.','.$last_id_store.'", '.$this->db->escape($qrmd).')');
 		}
 		
 		$where = array(

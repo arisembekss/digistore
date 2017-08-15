@@ -2,12 +2,13 @@
 //echo $id_user;
 $meja_qr=array();
 $query = $this->db->query("select qr_code from meja_store where id_user = ".$id_user."&& id_store=".$id_store);
+$num_rows = $this->db->query("select qr_code from meja_store where id_user = ".$id_user."&& id_store=".$id_store)->num_rows();
 foreach ($query->result() as $q) {
 	# code...
 	$meja_qr[]=$q->qr_code;
 }
 
-echo implode($meja_qr);
+//echo implode($meja_qr);
 ?>
 <!DOCTYPE html>
 <html>
@@ -28,4 +29,31 @@ echo implode($meja_qr);
 		
 	</div>
 </div>
+<script>
+	initFirebase();
+</script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		<?php
+			for ($i=0; $i < $num_rows ; $i++) { 
+				# code...
+				?>
+				firebase.database().ref('pesanan/<?= $meja_qr[$i]?>/order/0').update({
+			    nm_pesanan:"0",
+			    jumlah:"0",
+			    keterangan:"0"
+				}, function(error){
+					if (error) {
+						alert("data couldn't be save, please try again", error)
+					} else{
+						setTimeout(function () {
+       window.location.href = "<?php echo base_url()?>/Account/overview";
+    }, 5000);
+					}
+				});
+				<?php
+			}
+		?>
+	});
+</script>
 </body>

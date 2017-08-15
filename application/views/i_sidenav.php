@@ -12,6 +12,7 @@ $numr = $this->db->query("select * from user_store where id_user = ".$id)->num_r
   <a href="<?php echo base_url() ?>Account" class="w3-bar-item w3-button">Dashboard</a>
   <a href="#" class="w3-bar-item w3-button" onclick="opentoko('toko')">Toko</a>
   	<div class="w3-ul" id="toko" style="display: none; margin-left: 20px;">
+    
   	<?php
 
   		if ($numr > 0) {
