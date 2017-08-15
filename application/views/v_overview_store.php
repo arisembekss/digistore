@@ -18,6 +18,7 @@
 
 	<div class="w3-container">
 		Page Overview
+		<?php echo base64_decode("c2F3dW5nZ2FsaW5nLDI=");?>
 	</div>
 </div>
 <?php include 'i_form_add_store.php';?>

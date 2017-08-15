@@ -14,6 +14,11 @@ class M_data extends CI_Model{
 		return $last_id;
 	}
 
+	function update_table($table, $field, $where, $data){
+		$this->db->where($field, $where);
+		$this->db->update($table, $data);
+	}
+
 	function select_all($table){
 		return $this->db->get($table);
 	}

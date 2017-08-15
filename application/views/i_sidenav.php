@@ -5,7 +5,7 @@ $numr = $this->db->query("select * from user_store where id_user = ".$id)->num_r
 //echo $numr;
 		
 ?>
-<div class="w3-sidebar w3-bar-block w3-card-2 w3-animate-left" style="display:none" id="mySidebar">
+<div class="w3-sidebar w3-bar-block w3-card-2 w3-animate-left" style="display:block" id="mySidebar">
   <button class="w3-bar-item w3-button w3-large"
   onclick="w3_close()">Close &times;</button>
   <br><br>
@@ -20,7 +20,7 @@ $numr = $this->db->query("select * from user_store where id_user = ".$id)->num_r
   			foreach ($query ->result() as $value) {
 			# code...
           $hrefdetail = base_url()."Account/detail_toko(".$value->nama_store.")";
-				echo "<a href='".base_url()."Account/detail_toko?sesstoko=".$value->id_store."' class='w3-bar-item w3-button'>".$value->nama_store."</a>";
+				echo "<a href='".base_url()."Account/detail_toko?sesstoko=".$value->id_store."&&sessnmtoko=".$value->nama_store."' class='w3-bar-item w3-button'>".$value->nama_store."</a>";
 			}
   		} else {
 

@@ -9,6 +9,7 @@ class Account extends CI_Controller {
 		$this->load->model('m_data');
 		$this->load->helper('form');
 		$this->load->helper('url');
+		$this->load->library('encrypt');
 		if($this->session->userdata('ustatus') != "login"){
 			redirect(base_url("login"));
 		} else{
@@ -56,22 +57,40 @@ class Account extends CI_Controller {
 		
 		for ($i=1; $i <= $jmlhmeja ; $i++) { 
 			# code...
-			$qrmd = md5("meja".$i.",".$namastore.",".$last_id_store);
+			$qrmd = base64_encode("meja".$i.",".$namastore.",".$last_id_store);
 			$query = $this->db->query('insert into meja_store (id_user, id_store, format, qr_code) values ('.$this->db->escape($iduser).', '.$this->db->escape($last_id_store).', "meja'.$i.','.$namastore.','.$last_id_store.'", '.$this->db->escape($qrmd).')');
 		}
 		
+		$encstore = base64_encode($this->input->post('nmtoko').','.$last_id_store);
+		$dataupdenc = array(
+				'enc'=>$encstore
+			);
+		$this->m_data->update_table('user_store', 'id_store', $last_id_store, $dataupdenc);
 		$where = array(
 				'id_user'=>$iduser,
-				'id_store'=>$last_id_store
+				'id_store'=>$last_id_store,
+				'encstore'=>$encstore
 			);
-		$data['qrcode'] = $this->m_data->select_data('meja_store', $where);
+		//$data['qrcode'] = $this->m_data->select_data('meja_store', $where);
 		$this->load->view('v_redirect_store', $where);
 	}
 
 	function detail_toko(){
 		//$session_toko = array("toko"=>$nmtoko);
-		$nmtoko = array('nmtoko'=>$this->input->get('sesstoko'));
+		$nmtoko = array(
+			'nmtoko'=>$this->input->get('sessnmtoko'),
+			'idtoko'=>$this->input->get('sesstoko')
+			);
 		$this->load->view('v_detail_toko', $nmtoko);
+	}
+
+	function edit_menu(){
+		
+		$nmtoko = array(
+			'nmtoko'=>base64_decode($this->input->get('sessnmtoko')),
+			'idtoko'=>base64_decode($this->input->get('sesstoko'))
+			);
+		$this->load->view('v_menu', $nmtoko);
 	}
 
 }

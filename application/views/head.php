@@ -8,3 +8,12 @@
 <!--<script type="text/javascript" src="admin.js"></script>
 <script type="text/javascript" src="adminpay.js"></script>
 <link rel="stylesheet" href="../style/font-awesome-4.6.3/css/font-awesome.min.css"> -->
+<style type="text/css">
+	#main{
+		margin-left: 25%;
+	}
+
+	#mySidebar{
+		width: 25%;
+	}
+</style>

@@ -38,7 +38,7 @@ foreach ($query->result() as $q) {
 			for ($i=0; $i < $num_rows ; $i++) { 
 				# code...
 				?>
-				firebase.database().ref('pesanan/<?= $meja_qr[$i]?>/order/0').update({
+				firebase.database().ref('warung/<?= $encstore?>/<?= $meja_qr[$i]?>/order/0').update({
 			    nm_pesanan:"0",
 			    jumlah:"0",
 			    keterangan:"0"

@@ -1,5 +1,6 @@
 <?php  
-
+$bsidtoko = base64_encode($idtoko);
+$bsnmtoko = base64_encode($nmtoko);
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,6 +19,7 @@
 
 	<div class="w3-container">
 		<?php echo "detail dari ".$nmtoko; ?>
+		<div><a href="<?php echo base_url()?>Account/edit_menu?sesstoko=<?= $bsidtoko?>&&sessnmtoko=<?= $bsnmtoko?>">edit menu <?= $nmtoko?></a></div>
 	</div>
 </div>
 <?php include 'i_form_add_store.php';?>
