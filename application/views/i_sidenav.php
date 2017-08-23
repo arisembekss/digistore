@@ -20,7 +20,7 @@ $numr = $this->db->query("select * from user_store where id_user = ".$id)->num_r
   			foreach ($query ->result() as $value) {
 			# code...
           $hrefdetail = base_url()."Account/detail_toko(".$value->nama_store.")";
-				echo "<a href='".base_url()."Account/detail_toko?sesstoko=".$value->id_store."&&sessnmtoko=".$value->nama_store."' class='w3-bar-item w3-button'>".$value->nama_store."</a>";
+				echo "<a href='".base_url()."Account/detail_toko?sesstoko=".$value->id_store."&&sessnmtoko=".$value->nama_store."&&sessbase=".$value->enc."' class='w3-bar-item w3-button'>".$value->nama_store."</a>";
 			}
   		} else {
 

@@ -1,6 +1,7 @@
 <?php  
-$bsidtoko = base64_encode($idtoko);
-$bsnmtoko = base64_encode($nmtoko);
+$bsidtoko = base64_encode($this->session->userdata('idtoko'));
+$bsnmtoko = base64_encode($this->session->userdata('nmtoko'));
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,8 +19,8 @@ $bsnmtoko = base64_encode($nmtoko);
 	<?php include 'i_headpage.php' ?>
 
 	<div class="w3-container">
-		<?php echo "detail dari ".$nmtoko; ?>
-		<div><a href="<?php echo base_url()?>Account/edit_menu?sesstoko=<?= $bsidtoko?>&&sessnmtoko=<?= $bsnmtoko?>">edit menu <?= $nmtoko?></a></div>
+		<?php echo "detail dari ".$this->session->userdata('idtoko'); ?>
+		<div><a href="<?php echo base_url()?>Account/edit_menu?sesstoko=<?= $bsidtoko?>&&sessnmtoko=<?= $bsnmtoko?>">edit menu <?= $this->session->userdata('nmtoko')?></a></div>
 	</div>
 </div>
 <?php include 'i_form_add_store.php';?>

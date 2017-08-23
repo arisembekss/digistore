@@ -70,7 +70,7 @@ $_SESSION['idtoko'] = $idtoko;
 
 	  <div id="minuman" class="w3-card-4 w3-container w3-border menudet" style="display:none">
 	    <h2>Menu minuman <?= $nmtoko?></h2>
-	    <p><button class="w3-btn">Tambah Menu Makanan</button></p>
+	    <p><button class="w3-btn" onclick="document.getElementById('modaladdmenumnm').style.display='block'">Tambah Menu Makanan</button></p>
 	    <?php
 	    	if ($countmnm == 0){
 	    		echo "<p>Masih belum ada menu yang disimpan</p>";
@@ -112,6 +112,7 @@ $_SESSION['idtoko'] = $idtoko;
 	</div>
 </div>
 <?php include 'i_form_add_menumkn.php';?>
+<?php include 'i_form_add_menumnm.php';?>
 <?php include 'i_form_add_store.php';?>
 <script>
 	

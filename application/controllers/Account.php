@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Account extends CI_Controller {
 
 	public $user_rtdb;
+	public $encstore;
 	function __construct(){
 		parent::__construct();
 		$this->load->model('m_data');
@@ -79,9 +80,11 @@ class Account extends CI_Controller {
 		//$session_toko = array("toko"=>$nmtoko);
 		$nmtoko = array(
 			'nmtoko'=>$this->input->get('sessnmtoko'),
-			'idtoko'=>$this->input->get('sesstoko')
+			'idtoko'=>$this->input->get('sesstoko'),
+			'basenmtoko'=>$this->input->get('sessbase')
 			);
-		$this->load->view('v_detail_toko', $nmtoko);
+		$this->session->set_userdata($nmtoko);
+		$this->load->view('v_detail_toko');
 	}
 
 	function edit_menu(){
@@ -102,7 +105,9 @@ class Account extends CI_Controller {
 				'keterangan'=>$this->input->post('keterangan'),
 				'harga'=>$this->input->post('harga'),
 			);
-		$this->m_data->insert_table('menu', $data);
+		$lastidmenu = $this->m_data->insert_table_retid('menu', $data);
+		$this->session->set_userdata('lastidmenu', $lastidmenu);
+		$this->load->view('v_redirect_menu', $data);
 	}
 
 }
