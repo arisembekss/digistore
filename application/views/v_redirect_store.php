@@ -1,11 +1,11 @@
 <?php  
 //echo $id_user;
 $meja_qr=array();
-$query = $this->db->query("select qr_code from meja_store where id_user = ".$id_user."&& id_store=".$id_store);
-$num_rows = $this->db->query("select qr_code from meja_store where id_user = ".$id_user."&& id_store=".$id_store)->num_rows();
+$query = $this->db->query("select format from meja_store where id_user = ".$id_user."&& id_store=".$id_store);
+$num_rows = $this->db->query("select format from meja_store where id_user = ".$id_user."&& id_store=".$id_store)->num_rows();
 foreach ($query->result() as $q) {
 	# code...
-	$meja_qr[]=$q->qr_code;
+	$meja_qr[]=$q->format;
 }
 
 //echo implode($meja_qr);
@@ -38,7 +38,7 @@ foreach ($query->result() as $q) {
 			for ($i=0; $i < $num_rows ; $i++) { 
 				# code...
 				?>
-				firebase.database().ref('warung/<?= $encstore?>/<?= $meja_qr[$i]?>/order/0').update({
+				firebase.database().ref('warung/<?= $nama_store?>/<?= $meja_qr[$i]?>/order/0').update({
 			    nm_pesanan:"0",
 			    jumlah:"0",
 			    keterangan:"0"

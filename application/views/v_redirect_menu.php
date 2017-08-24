@@ -38,8 +38,8 @@ $meja_qr=array();
 			//for ($i=0; $i < $num_rows ; $i++) { 
 				# code...
 				?>
-				firebase.database().ref('warung/<?= $this->session->userdata('basenmtoko')?>/<?= $jenis?>/<?= $this->session->userdata('lastidmenu')?>').update({
-			    nm_menu:"<?= $nama_menu?>",
+				firebase.database().ref('warung/<?= $this->session->userdata('nmtoko')?>/<?= $jenis?>/<?= $this->session->userdata('lastidmenu')?>').update({
+			    nama:"<?= $nama_menu?>",
 			    foto:"0",
 			    harga:"<?= $harga?>",
 			    keterangan:"<?= $keterangan?>"
