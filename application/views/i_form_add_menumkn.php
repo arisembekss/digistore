@@ -10,7 +10,7 @@
       	<!-- <div class="loader"></div> -->
       	<?php 
 $attributes = array("name" => "formaddmenumkn");
-echo form_open("Account/add_menu", $attributes);?>
+echo form_open_multipart("Account/add_menu", $attributes);?>
 	<div class="form-group">
 		<label for="nmmenu"></label>
 		<input type="hidden" name="jenis" value="makanan">
@@ -24,6 +24,11 @@ echo form_open("Account/add_menu", $attributes);?>
 	<div class="form-group">
 		<label for="harga"></label>
 		<input class="w3-input" name="harga" placeholder="harga" type="text" />
+	</div>
+	<br>
+	<div class="form-group">
+		<label for="berkas">Upload Gambar :</label>
+		<input type="file" name="berkas" placeholder="Upload Gambar" />
 	</div>
 	<br><br>
 	

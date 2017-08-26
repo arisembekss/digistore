@@ -98,16 +98,51 @@ class Account extends CI_Controller {
 	}
 
 	function add_menu(){
-		$data = array(
+		/*$data = array(
 				'id_store'=>$this->input->post('id_store'),
 				'jenis'=>$this->input->post('jenis'),
 				'nama_menu'=>$this->input->post('nmmenu'),
 				'keterangan'=>$this->input->post('keterangan'),
 				'harga'=>$this->input->post('harga'),
-			);
-		$lastidmenu = $this->m_data->insert_table_retid('menu', $data);
-		$this->session->set_userdata('lastidmenu', $lastidmenu);
-		$this->load->view('v_redirect_menu', $data);
+				'foto'=>$this->input->post('berkas')
+			);*/
+
+		$config['upload_path']          = './pict/';
+		$config['allowed_types']        = 'gif|jpg|png';
+		$config['max_size']             = 100;
+		$config['max_width']            = 1024;
+		$config['max_height']           = 768;
+		 $this->load->library('upload', $config);
+
+                if ( ! $this->upload->do_upload('berkas'))
+                {
+                	$this->upload->display_errors('<p>', '</p>');
+                        /*$error = array('error' => $this->upload->display_errors());
+
+                        $this->load->view('tmplt', $error);*/
+                }
+                else
+                {
+                        /*$data = array('upload_data' => $this->upload->data());
+
+                        $this->load->view('upload_success', $data);*/
+                    $fotoupl = base_url()."pict/".$this->upload->data('file_name');
+                    $data = array(
+						'id_store'=>$this->input->post('id_store'),
+						'jenis'=>$this->input->post('jenis'),
+						'nama_menu'=>$this->input->post('nmmenu'),
+						'keterangan'=>$this->input->post('keterangan'),
+						'harga'=>$this->input->post('harga'),
+						'foto'=>$fotoupl
+					);
+                    $lastidmenu = $this->m_data->insert_table_retid('menu', $data);
+                    $this->session->set_userdata('lastidmenu', $lastidmenu);
+
+					$this->load->view('v_redirect_menu', $data);
+                }
+
+		
+		
 	}
 
 }

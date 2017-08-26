@@ -40,7 +40,7 @@ $meja_qr=array();
 				?>
 				firebase.database().ref('warung/<?= $this->session->userdata('nmtoko')?>/<?= $jenis?>/<?= $this->session->userdata('lastidmenu')?>').update({
 			    nama:"<?= $nama_menu?>",
-			    foto:"0",
+			    foto:"<?= $foto?>",
 			    harga:"<?= $harga?>",
 			    keterangan:"<?= $keterangan?>"
 				}, function(error){
